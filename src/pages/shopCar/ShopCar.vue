@@ -235,8 +235,8 @@ export default {
     .main
         width:94%
         height:auto
-        margin:0 auto
-        padding-bottom:3rem
+        margin:.2rem auto
+        padding:1.5rem 0 3rem
         .no-order
             width:100%
             height:7rem

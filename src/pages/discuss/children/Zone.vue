@@ -34,12 +34,12 @@ export default {
     .discuss-zone
         width:94%
         height:auto
-        margin:1rem auto
-        margin-top:0
+        margin:.3rem auto
+        padding-top:1.4rem
         .item
             height:auto
             background:#fff
-            border-radius:.3rem
+            border-radius:.15rem
             padding:.3rem
             margin-bottom:.2rem
             display:flex

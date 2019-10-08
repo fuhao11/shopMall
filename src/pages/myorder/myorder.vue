@@ -180,6 +180,7 @@ export default {
             width:100%
             height:1.3rem
             background:#fff
+            margin-top:1.5rem
             display:flex
             justify-content:space-around
             align-items:center
@@ -275,7 +276,7 @@ export default {
         .recommend
             width:100%
             height:auto
-            margin:2.6rem auto .2rem
+            margin:2.6rem auto 0
             .rec-title
                 text-align:center
                 line-height:1.3rem

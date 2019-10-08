@@ -28,7 +28,7 @@
                 </div>
             </div>
         </header>
-        <div class="navbox">
+        <div :class="[isFixed? 'navbox-fixed':'navbox']" ref="navBox">
             <ul class="nav">
                 <li v-for="item in navList" :key="item" :class="[navActive == item ? 'active' : '']" @click="onNavClick($event)">{{item}}</li>
             </ul>
@@ -60,6 +60,7 @@ export default {
     name: "bussiness",
     data() {
         return {
+            isFixed:false,
             navActive:'全部商品',
             navList:['全部商品','热销榜','个护类型','个护按摩','家电','美妆'],
             bussiness:{
@@ -115,6 +116,10 @@ export default {
         onNavClick (e) {
             console.log(e)
             this.navActive = e.target.innerText;
+        },
+        handleScroll(){
+            let wTop = document.documentElement.scrollTop || document.body.scrollTop;
+            this.isFixed = wTop>=this.navTop ? true : false;
         }
     },
     created () {
@@ -134,6 +139,10 @@ export default {
                     break;
             }
         })
+    },
+    mounted(){
+        this.navTop = this.$refs.navBox.offsetTop;
+        window.addEventListener('scroll',this.handleScroll,true)
     }
 }
 </script>
@@ -206,6 +215,14 @@ export default {
     .navbox{
         width:100%;
         overflow-x: scroll;
+        position: relative;
+    }
+    .navbox-fixed{
+        position:fixed;
+        top:0;
+        left:0;
+        z-index:9;
+        background:white
     }
     .navbox::-webkit-scrollbar{
         width: 0;

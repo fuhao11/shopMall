@@ -21,7 +21,10 @@ export default {
         height: 1.4rem;
         line-height: 1.4rem;
         text-align: center;
-        position: relative;
+        position: fixed;
+        top:0;
+        left:0;
+        background:#fff;
         .back-icon{
             width:.8rem;
             height:.8rem;
