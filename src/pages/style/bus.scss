@@ -1,0 +1,19 @@
+$bgColor: #fff;
+
+@mixin busBtn($bgcolor) {
+    padding:0 .16rem;
+    border-radius: .2rem;
+    display: inline-block;
+    text-align: center;
+    font-size: .27rem;
+    margin-left: .1rem;
+    line-height: .7rem;
+    color: #fff;
+    background: $bgcolor;
+}
+
+@mixin ellpisis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
