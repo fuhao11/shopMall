@@ -220,14 +220,18 @@ export default {
                     justify-content:space-between
                     align-items:center
                     line-height:1.2rem
+                    margin-bottom:.3rem
                     .bussiness
                         width:79%
+                        display:flex
+                        justify-content:space-between
                         .bus_logo
                             width:1.2rem
                             height:1.2rem
                             
                         .bus_name
-                            width:64%
+                            flex:.95
+                            // width:64%
                             display:inline-block
                             ellipsis()
                     .pro_status
@@ -242,6 +246,7 @@ export default {
                     .pro_img
                         width:2.7rem
                         height:2.7rem
+                        border-radius:.2rem
                     .pro_detail
                         width:61%
                         flex:8
