@@ -37,12 +37,12 @@
                         <div class="product-detail">
                             <div class="product-name">{{innerItem.proname}}</div>
                             <div class="product-mm">
-                                <!-- <span>￥{{innerItem.price}}</span> -->
-                                <span class="pro-price" v-for="(stateItem,sindex) in getState" :key="sindex" v-show="innerItem.id == getState[sindex].id">￥{{getState[sindex].price*getState[sindex].payNum}}</span>
-                                <div class="pro-control">
-                                    <span class="jian" @click.prevent="deProNum(innerItem.id)">-</span>
+                                <span>￥{{innerItem.price}}</span>
+                                <!-- <span>￥{{getState[index].id}}</span> -->
+                                <div style="margin-right:.5rem">
+                                    <span class="jian" @click="deProNum(innerItem.id)">-</span>
                                     <span class="product-num" v-for="(stateItem,stateIndex) in productList" :key="stateIndex" v-show="innerItem.id == stateItem.id" :ref="innerItem.id">{{stateItem.payNum}}</span>
-                                    <span class="jia" @click.prevent="addProNum(innerItem.id)">+</span>
+                                    <span class="jia" @click="addProNum(innerItem.id)">+</span>
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,6 @@ export default {
         deProNum(id){
             this.$store.commit('dePro',id)
         },
-        //删除
         onDel () {
             var _this = this;
             console.log(this.shopList)
@@ -320,23 +319,17 @@ export default {
                         width:100%
                         display:flex
                         justify-content:space-between
-                        .pro-price
+                        .jian,.jia
                             display:inline-block
-                            width:2rem
-                            font-size:.35rem
-                            ellipsis()
-                        .pro-control
-                            flex:.7
-                            display:flex
-                            justify-content:space-around
-                            align-items:center
-                            .jian,.jia
-                                display:inline-block
-                                width:.75rem
-                                height:.75rem
-                                background:#ccc
-                                text-align:center
-                                line-height:.75rem
+                            width:.75rem
+                            height:.75rem
+                            background:#ccc
+                            text-align:center
+                            line-height:.75rem
+                        .product-num
+                            display:inline-block
+                            width:.45rem
+                            text-align:center
     .bottom
         width:100%
         height:auto

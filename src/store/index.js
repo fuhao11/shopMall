@@ -8,6 +8,11 @@ export default new Vuex.Store({
     state:{
         productList:[]
     },
+    getters:{
+        getState(state){
+            return state.productList
+        }
+    },
     actions:{
 
     },
