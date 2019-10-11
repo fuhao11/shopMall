@@ -151,6 +151,8 @@ export default {
     .bussiness{
         overflow: hidden;
         font-size: .42rem;
+        min-height: 100vh;
+        background: #eee;
     }
     .bus_header {
         width: 100%;
@@ -216,6 +218,7 @@ export default {
         width:100%;
         overflow-x: scroll;
         position: relative;
+        background: #fff;
     }
     .navbox-fixed{
         position:fixed;

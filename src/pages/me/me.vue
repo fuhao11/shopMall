@@ -1,6 +1,7 @@
 <template>
     <div class="me">
         <h1>我的</h1>
+        <button @click="$router.go(-1)">返回</button>
         <router-link to="/me/myAttention" tag="button">我的关注</router-link>
         <router-link to="/me/historyLook" tag="button">历史浏览</router-link>
         <router-view></router-view>
