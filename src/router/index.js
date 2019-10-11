@@ -60,6 +60,17 @@ export default new Router({
             path: 'cashrec',
             component: () => import('@/pages/cash/children/cashRec')
           }]
+        },
+        {
+          path: '/me',
+          component: () => import('@/pages/me/me'),
+          children:[{
+            path:'myAttention',
+            component: () => import('@/pages/me/children/myAttention')
+          },{
+            path:'historyLook',
+            component: () => import('@/pages/me/children/historyLook')
+          }]
         }
       ]
     },

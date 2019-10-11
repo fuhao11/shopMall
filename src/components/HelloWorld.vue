@@ -7,6 +7,7 @@
     <router-link :to="'/bussiness/' + 1" tag="button">店铺主页</router-link>
     <button @click="$router.push('/wuliu')">物流信息</button>
     <router-link to="/cash" tag="button">申请提现</router-link>
+    <router-link to="/me" tag="button">我的</router-link>
   </div>
 </template>
 
