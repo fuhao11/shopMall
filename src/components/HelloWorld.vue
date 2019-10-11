@@ -1,11 +1,12 @@
 <template>
   <div class="hello">
     <h1>Home</h1>
-    <router-link to="/discuss" tag="button" replace>全部评价</router-link>
-    <router-link to="/shopCar" tag="button" replace>购物车</router-link>
-    <router-link to="/myorder" tag="button" replace>我的订单</router-link>
+    <router-link to="/discuss" tag="button">全部评价</router-link>
+    <router-link to="/shopCar" tag="button">购物车</router-link>
+    <router-link to="/myorder" tag="button">我的订单</router-link>
     <router-link :to="'/bussiness/' + 1" tag="button">店铺主页</router-link>
-    <button @click="clickMe">点我去店铺主页</button>
+    <button @click="$router.push('/wuliu')">物流信息</button>
+    <router-link to="/cash" tag="button">申请提现</router-link>
   </div>
 </template>
 

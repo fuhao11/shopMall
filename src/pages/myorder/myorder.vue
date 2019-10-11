@@ -1,5 +1,7 @@
 <template>
-    <div class="myorder">
+    <div class="order-wrapper" ref="myorder-wrapper">
+    <div class="myorder" >
+        <router-view></router-view>
         <common-head class="myorder-header" :showBack="true">
             <h3 slot="title" class="myorder-title">我的订单</h3>
         </common-head>
@@ -15,7 +17,7 @@
                 </div>
             </div>
             <ul v-else>
-                <li class="item" v-for="item in orderList" :key="item.id" :data-name="item.status" v-if="showNav==item.status || nav_choose==0">
+                <li class="item" v-for="item in orderList" :key="item.id" :data-name="item.status" v-if="showNav==item.status || nav_choose==0" @click="toOrderDetail(item.id)">
                     <div class="item-title">
                         <div class="bussiness">
                             <img class="bus_logo" :src="item.proimg" alt="">
@@ -67,10 +69,14 @@
                 </li>
             </ul>
         </section>
+        
+    </div>
+    
     </div>
 </template>
 <script>
 import CommonHead from 'common/Header'
+import BScroll from 'better-scroll'
 export default {
     name:"myorder",
     data() {
@@ -121,7 +127,8 @@ export default {
                 'id':'bza123123',
                 'num':13,
                 'status':'daipingjia'
-            }]
+            }],
+            orderScroll:null
         }
     },
     components:{
@@ -152,6 +159,9 @@ export default {
                 case 'daipingjia':
                     return '待评价'
             }
+        },
+        toOrderDetail(id){
+            this.$router.push('myorder/orderdetail/'+id)
         }
         
     },
@@ -162,16 +172,25 @@ export default {
         // localList.map((item) => {
         //     item.
         // })
+    },
+    mounted(){
+        let el = this.$refs['myorder-wrapper'];
+        this.orderScroll = new BScroll(el, { click:true })
     }
 }
 </script>
 <style lang="stylus" scoped>
     @import '../style/mixin.styl'
+    .order-wrapper
+        width:100%
+        height:100vh
+        overflow:hidden
     .myorder
         width:100%
-        height:100%
+        // height:100%
         font-size:.42rem
         background:#eee
+        padding-top:1px
         .myorder-header
             background:#fff
             .myorder-title
@@ -180,7 +199,7 @@ export default {
             width:100%
             height:1.3rem
             background:#fff
-            margin-top:1.5rem
+            margin-top:1.3rem
             display:flex
             justify-content:space-around
             align-items:center
@@ -282,6 +301,7 @@ export default {
             width:100%
             height:auto
             margin:2.6rem auto 0
+            padding-bottom:2rem
             .rec-title
                 text-align:center
                 line-height:1.3rem

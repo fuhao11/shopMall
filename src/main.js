@@ -15,6 +15,17 @@ if ('addEventListener' in document) {
   }, false);
 }
 
+fastClick.prototype.focus = function (targetElement) {
+  let length;
+  if (targetElement.setSelectionRange && targetElement.type.indexOf('number') !== 0 && targetElement.type !== 'time' && targetElement.type !== 'month') {
+    length = targetElement.value.length;
+    targetElement.focus();
+    targetElement.setSelectionRange(length, length);
+  } else {
+    targetElement.focus();
+  }
+};
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
