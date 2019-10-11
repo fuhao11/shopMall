@@ -6,6 +6,7 @@
         <ul class="select-list" v-if="show">
             <li v-for="(item, index) in selectList" :key="index"  @click="itemClick(item)">{{item}}</li>
         </ul>
+        <slot name="clear"></slot>
     </div>
 </template>
 <script>
