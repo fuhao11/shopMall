@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Home from '@/pages/home/Home'
 import App from '../App'
 
 
@@ -15,11 +15,11 @@ export default new Router({
       children:[
         {
           path: '',
-          redirect: '/hello'
+          redirect: '/home'
         },
         {
-          path: '/hello',
-          component: HelloWorld
+          path: '/home',
+          component: Home
         },
         {
           path: '/discuss',
@@ -74,36 +74,6 @@ export default new Router({
         }
       ]
     },
-    // {
-    //   path: '/discuss',
-    //   name: 'Discuss',
-    //   component: () => import('@/pages/discuss/Discuss')
-    // },
-    // {
-    //   path: '/shopCar',
-    //   name: 'ShopCar',
-    //   component: () => import('@/pages/ShopCar/ShopCar')
-    // },
-    // {
-    //   path: '/myorder',
-    //   name: 'myorder',
-    //   component: () => import('@/pages/myorder/myorder'),
-    //   // children:[{
-    //   //   path:'orderdetail/:id',
-    //   //   name:'orderDetail',
-    //   //   component: () => import('@/pages/myorder/detail/orderDetail')
-    //   // }]
-    // },
-    // {
-    //   path:'/myorder/orderdetail/:id',
-    //   name:'orderDetail',
-    //   component: () => import('@/pages/myorder/detail/orderDetail')
-    // },
-    // {
-    //   path: '/bussiness/:id',
-    //   name: 'bussiness',
-    //   component: () => import('@/pages/bussiness/bussiness')
-    // }
   ],
   scrollBehavior(to,from,savedPositon){
     return { x: 0, y: 0 }

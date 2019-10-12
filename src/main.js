@@ -3,11 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Vuex from 'vuex'
 import store from './store'
 import fastClick from 'fastclick'
 import 'lib-flexible'
 import './pages/style/reset.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', function() {
@@ -27,6 +28,7 @@ fastClick.prototype.focus = function (targetElement) {
 };
 
 Vue.config.productionTip = false
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({
