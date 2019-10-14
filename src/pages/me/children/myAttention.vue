@@ -169,13 +169,9 @@ export default {
         },
         selectChange(t){
             this.selectVal = t
-        }
-    },
-    mounted(){
-        var _this = this;
-        _this.scroll = new BScroll(_this.$refs.scrollWrapper,_this.scrollOption)
-        _this.$nextTick(() => {
-            // console.log(_this.scroll)
+        },
+        initScroll(){
+            var _this = this;
             _this.scroll.on('touchEnd', (pos) => {
                 if(pos.y > 50){
                     console.log('loadMore')
@@ -203,6 +199,14 @@ export default {
                     _this.scroll.refresh()
                 },2000)
             })
+        }
+    },
+    mounted(){
+        var _this = this;
+        _this.scroll = new BScroll(_this.$refs.scrollWrapper,_this.scrollOption)
+        _this.$nextTick(() => {
+            // console.log(_this.scroll)
+            _this.initScroll()
             
         });
         

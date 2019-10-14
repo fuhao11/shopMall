@@ -188,13 +188,9 @@ export default {
         },
         handletoFixed(p){
             return p.toFixed(2)
-        }
-    },
-    mounted(){
-        var _this = this;
-        _this.scrollHistory = new BScroll(_this.$refs.historyWrapper,_this.historyOption );
-
-        _this.$nextTick(() =>{
+        },
+        initScroll(){
+            var _this = this;
             _this.scrollHistory.on('touchEnd', (pos) => {
                 if(pos.y > 50){
                     _this.top = { top: '10px' }
@@ -220,6 +216,14 @@ export default {
                     _this.scrollHistory.refresh()
                 },2000)
             })
+        }
+    },
+    mounted(){
+        var _this = this;
+        _this.scrollHistory = new BScroll(_this.$refs.historyWrapper,_this.historyOption );
+
+        _this.$nextTick(() =>{
+            _this.initScroll()
         })
     }
 }

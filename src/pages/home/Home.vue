@@ -219,16 +219,21 @@
             </section>
         </section>
         <home-nav></home-nav>
+        <transition name="fade">
+            <home-loading v-show="showLoading"></home-loading>
+        </transition>
     </div>
 </template>
 <script>
 import 'swiper/dist/css/swiper.css'
 import homeNav from 'common/homeNav'
+import homeLoading from 'common/Loading'
 // import BScroll from 'better-scroll'
 
 export default {
     data() {
         return {
+            showLoading:true,
             scroll:null,
             swiperOption:{
                 pagination:'.swiper-pagination',
@@ -244,10 +249,12 @@ export default {
         }
     },
     components:{
-        homeNav
+        homeNav,
+        homeLoading
     },
     mounted(){
         // this.scroll = new BScroll(this.$refs.limitTime,{ click:true })
+        this.showLoading = false
     }
 }
 </script>
@@ -578,5 +585,11 @@ export default {
             }
 
         }
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .7s
+    }
+    .fade-enter, .fade-leave-active {
+        opacity: 0
     }
 </style>

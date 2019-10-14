@@ -5,11 +5,15 @@
         <router-link to="/me/myAttention" tag="button">我的关注</router-link>
         <router-link to="/me/historyLook" tag="button">历史浏览</router-link>
         <router-view></router-view>
+        <home-nav></home-nav>
     </div>
 </template>
 <script>
+import homeNav from 'common/homeNav'
 export default {
-    
+    components:{
+        homeNav
+    }
 }
 </script>
 <style lang="scss" scoped>
